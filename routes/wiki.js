@@ -17,8 +17,19 @@ router.get('/add', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  res.json(req.body);
-  //res.redirect('/');
+  //res.json(req.body);
+  let page = Page.build({
+    title: req.body.title,
+    content: req.body.content
+  });
+  page.save().then(() => {
+    res.redirect('/')
+  }).catch(error => {
+    console.log(error)
+  });
 });
+
+
+
 
 module.exports = router;
