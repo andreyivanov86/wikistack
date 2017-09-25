@@ -12,8 +12,8 @@ const routes = require('./routes');
 
 app.use(morgan('dev'));
 
+app.use('/', routes);
+
 const server = app.listen(3000, function(){
   console.log('Listening...')
 });
-
-app.use('/', routes);
