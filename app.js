@@ -9,7 +9,8 @@ const routes = require('./routes');
 // const env = nunjucks.configure('views', { noCache: true }); // where to find the views, caching off
 // app.set('view engine', 'html'); // what file extension do our templates have
 // app.engine('html', nunjucks.render); // how to render html templates
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('dev'));
 
 app.use('/', routes);
