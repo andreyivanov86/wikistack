@@ -1,5 +1,8 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const models = require('../models')
+const Page = models.Page;
+const User = models.User;
 
 router.get('/', function(req, res, next) {
   res.redirect('/')
@@ -13,9 +16,9 @@ router.get('/add', function(req, res, next) {
   res.render('addpage');
 });
 
-router.post('/add', function(req, res, next) {
-  console.log(req.body);
+router.post('/', function(req, res, next) {
   res.json(req.body);
+  //res.redirect('/');
 });
 
 module.exports = router;
